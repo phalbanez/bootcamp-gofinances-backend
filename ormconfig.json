@@ -4,8 +4,9 @@
   "port": 5432,
   "username": "postgres",
   "password": "docker",
-  "database": "gostack_desafio06",
+  "database": "gostack_desafio06_tests",
   "entities": ["./src/models/*.ts"],
+  "synchronize": false,
   "migrations": ["./src/database/migrations/*.ts"],
   "cli": {
     "migrationsDir": "./src/database/migrations"
