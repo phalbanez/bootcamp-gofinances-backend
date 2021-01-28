@@ -34,6 +34,8 @@ class ImportTransactionsService {
 
     await new Promise(resolve => parseCSV.on('end', resolve));
 
+    await fs.promises.unlink(filePath);
+
     const importedTransactions: Transaction[] = [];
     const createTransaction = new CreateTransactionService();
 
@@ -49,8 +51,6 @@ class ImportTransactionsService {
 
       importedTransactions.push(importedTransaction);
     }
-
-    await fs.promises.unlink(filePath);
 
     return importedTransactions;
   }
